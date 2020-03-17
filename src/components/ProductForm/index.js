@@ -6,59 +6,74 @@ import StoreContext from '~/context/StoreContext'
 import styled from 'styled-components'
 
 const QuantityContain = styled.div`
-  display:grid;
-  grid-template-columns:35px 25px 40px;
-  margin:1em 0;
+  display: grid;
+  grid-template-columns: 35px 25px 40px;
+  margin: 1em 0;
+`
+
+const ProductTitle = styled.h3`
+  &:disabled {
+    color: lightgray;
+  }
 `
 
 const AddRemoveItems = styled.div`
   border: none;
   outline: none;
-  text-align:center;
-  margin-top:5px;
+  text-align: center;
+  margin-top: 5px;
 `
 
-const QuantityButton = styled.div`
+const QuantityButton = styled.button`
   cursor: pointer;
-  border:1px solid;
-  padding:4px 10px; 
-  display:block;
-  position:relative;
-  text-align:center;
+  padding: 4px 10px;
+  display: block;
+  position: relative;
+  text-align: center;
   transition: all 0.3s ease 0s;
-  background:white;
+  background: white;
+  border: 1px solid ${props => props.theme.primarycolor};
+  color: ${props => props.theme.primarycolor};
 
-  &:hover {
-    background:black;
-    color:white;
+  &:disabled {
+    background: white;
+    transition: none;
+    color: lightgray;
+    border: 1px solid lightgray;
+    cursor: text;
   }
 
+  &:hover:enabled {
+    background: ${props => props.theme.primarycolor};
+    color: white;
+  }
 `
 
 const AddToCart = styled.button`
-  background:none;
-  border:1px solid;
-  outline:none;
-  width:150px;
-  text-align:center;
+  background: none;
+  border: 1px solid ${props => props.theme.primarycolor};
+  outline: none;
+  width: 150px;
+  text-align: center;
   cursor: pointer;
-  padding:7px;
-  border-radius:4px;
+  padding: 7px;
+  border-radius: 4px;
   transition: all 0.3s ease 0s;
-  background:white;
+  background: white;
+  color: ${props => props.theme.primarycolor};
 
   &:disabled {
-  background:white;
-  transition:none;
-  cursor: text;
-   
-    }
-  }
-  &:hover:enabled {
-    background:black;
-    color:white;
+    background: white;
+    transition: none;
+    color: lightgray;
+    border: 1px solid lightgray;
+    cursor: text;
   }
 
+  &:hover:enabled {
+    background: ${props => props.theme.primarycolor};
+    color: white;
+  }
 `
 
 const ProductForm = ({ product }) => {
@@ -98,26 +113,24 @@ const ProductForm = ({ product }) => {
 
   const handleQuantityChange = ({ target }) => {
     setQuantity(target.value)
-    console.log(target.value);
-
+    console.log(target.value)
   }
-
 
   const decreaseItem = () => {
-    if(quantity > 1) {
+    if (quantity > 1) {
       setQuantity(quantity - 1)
-    }else {
-      return null 
+    } else {
+      return null
+    }
   }
-}
 
   const increaseItem = () => {
-    if(quantity < 8) {
+    if (quantity < 8) {
       setQuantity(quantity + 1)
-    }else {
-      return null 
+    } else {
+      return null
+    }
   }
-}
 
   const handleOptionChange = (optionIndex, { target }) => {
     const { value } = target
@@ -137,18 +150,9 @@ const ProductForm = ({ product }) => {
 
   const handleAddToCart = () => {
     addVariantToCart(productVariant.shopifyId, quantity)
-    console.log("Product Added!")
+    console.log('Product Added!')
   }
 
-  /* 
-  Using this in conjunction with a select input for variants 
-  can cause a bug where the buy button is disabled, this 
-  happens when only one variant is available and it's not the
-  first one in the dropdown list. I didn't feel like putting 
-  in time to fix this since its an edge case and most people
-  wouldn't want to use dropdown styled selector anyways - 
-  at least if the have a sense for good design lol.
-  */
   const checkDisabled = (name, value) => {
     const match = find(variants, {
       selectedOptions: [
@@ -171,8 +175,9 @@ const ProductForm = ({ product }) => {
 
   return (
     <>
-      <h3>{price}</h3>
-      {options.map(({ id, name, values }, index) => (
+      {!available && <p>This Product is out of Stock!</p>}
+      <ProductTitle disabled={!available || adding}>{price}</ProductTitle>
+      {/* {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
           <label htmlFor={name}>{name} </label>
           <select
@@ -192,9 +197,11 @@ const ProductForm = ({ product }) => {
           </select>
           <br />
         </React.Fragment>
-      ))}
+      ))} */}
       <QuantityContain>
-        <QuantityButton disabled={!available || adding} onClick={decreaseItem}>-</QuantityButton>
+        <QuantityButton disabled={!available || adding} onClick={decreaseItem}>
+          -
+        </QuantityButton>
 
         <AddRemoveItems
           id="quantity"
@@ -206,7 +213,9 @@ const ProductForm = ({ product }) => {
         >
           {quantity}
         </AddRemoveItems>
-        <QuantityButton disabled={!available || adding} onClick={increaseItem}>+</QuantityButton>
+        <QuantityButton disabled={!available || adding} onClick={increaseItem}>
+          +
+        </QuantityButton>
       </QuantityContain>
 
       <br />

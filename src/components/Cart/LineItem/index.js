@@ -4,48 +4,52 @@ import { Wrapper } from './styles'
 import styled from 'styled-components'
 
 const QuantityContain = styled.div`
-  display:grid;
-  grid-template-columns:35px 25px 40px;
-  margin:1em 0;
+  display: grid;
+  grid-template-columns: 35px 25px 40px;
+  margin: 1em 0;
 `
 
 const AddRemoveItems = styled.div`
   border: none;
   outline: none;
-  text-align:center;
-  margin-top:5px;
+  text-align: center;
+  margin-top: 5px;
 `
 
 const QuantityButton = styled.div`
   cursor: pointer;
-  border:1px solid;
-  padding:4px 10px; 
-  display:block;
-  position:relative;
-  text-align:center;
+  border: 1px solid;
+  padding: 4px 10px;
+  display: block;
+  position: relative;
+  text-align: center;
   transition: all 0.3s ease 0s;
-  background:white;
+  background: white;
+  
 
   &:hover {
-    background:black;
-    color:white;
+    background: ${props => props.theme.primarycolor};
+    color: white;
   }
 `
 
 const RemoveItem = styled.button`
-  background:none;
-  border:1px solid;
-  padding:7px;
+  background: none;
+  border: 1px solid ${props => props.theme.primarycolor};
+  padding: 6px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  background:white;
+  background: white;
+  color: ${props => props.theme.primarycolor};
+  max-height: 86px;
+  max-width: 140px;
+  align-self: center;
 
   &:hover {
-    background:black;
-    color:white;
+    background: ${props => props.theme.primarycolor};
+    color: white;
   }
 `
-
 
 
 const LineItem = props => {

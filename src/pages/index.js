@@ -1,14 +1,21 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import SEO from '~/components/seo'
 import ProductGrid from '~/components/ProductGrid'
+import styled from 'styled-components'
+
+const IntroStatement = styled.div`
+  margin-bottom:2em;
+`
 
 const IndexPage = () => (
   <>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
+    <IntroStatement>
+      <h1>Hi shoppers!</h1>
+      <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
+    </IntroStatement>
+    
     <ProductGrid />
     <Link to="/collections">Go to page 2</Link>
   </>

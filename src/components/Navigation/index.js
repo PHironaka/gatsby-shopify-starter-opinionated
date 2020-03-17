@@ -4,10 +4,29 @@ import PropTypes from 'prop-types'
 import Cart from '../Cart'
 import StoreContext from '~/context/StoreContext'
 import ToggleContent from '../ToggleContent'
-import { CartCounter, Container, CartButton, MenuLink, Wrapper } from './styles'
+import { Container, CartButton, MenuLink, Wrapper } from './styles'
 import styled from 'styled-components'
 import CloseCartButton from './closeCart'
 import CartIcon from './cartIcon'
+
+const HeaderWrapper = styled.div`
+   background: ${props => props.theme.primarycolor};
+    margin-bottom: 1.45rem;
+    position:sticky;
+  top:0;
+  z-index:1000;
+`
+
+const CartCounter = styled.span`
+  background-color: white;
+  color: ${props => props.theme.primarycolor};
+  border-radius: 20px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  float: right;
+  margin: -10px;
+  z-index: 20;
+`
 
 const CartContainer = styled.div`
     position: fixed;
@@ -78,7 +97,7 @@ const Navigation = ({ siteTitle }) => {
   const [showText] = useState(false)
 
   return (
-    <Wrapper>
+    <HeaderWrapper>
       <Container className={` ${showText ? 'open' : ''}`}>
         <MenuLink to="/">{siteTitle}</MenuLink>
 
@@ -97,7 +116,7 @@ const Navigation = ({ siteTitle }) => {
           )}
         />
       </Container>
-    </Wrapper>
+    </HeaderWrapper>
   )
 }
 

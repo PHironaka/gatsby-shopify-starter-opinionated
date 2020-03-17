@@ -3,21 +3,17 @@ import { Link } from 'gatsby'
 
 import { breakpoints } from '../../utils/styles'
 
-export const Wrapper = styled.div`
-  background: rebeccapurple;
-  margin-bottom: 1.45rem;
-
-
-
-`
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 1.45rem;
+  padding: 1em 3em;
   margin: 0 auto;
-  max-width: 1120px;
+  max-width: 1400px;
+  @media (max-width: ${breakpoints.s}px){
+    padding: 1em ;
+  }
 `
 
 export const CartButton = styled.div`
@@ -41,7 +37,7 @@ export const MenuLink = styled(Link)`
 
 export const CartCounter = styled.span`
   background-color: white;
-  color: #663399;
+  color: ${props => props.theme.primarycolor};
   border-radius: 20px;
   padding: 0 10px;
   font-size: 1.2rem;

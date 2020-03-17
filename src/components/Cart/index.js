@@ -6,23 +6,25 @@ import styled from 'styled-components'
 
 
 const CheckOutButton = styled.button`
-  position:sticky;
+  position:absolute;
   bottom:10px;
-  width:100%;
+  width:90%;
   text-align:center;
   overflow:hidden;
   right:0;
+  color: ${props => props.theme.primarycolor};
   cursor:pointer;
   transition: all 0.3s ease 0s;
   background:none;
   outline:none;
   z-index:1000;
   padding:10px;
-  border:1px solid;
+  margin:1em;
+  border:1px solid ${props => props.theme.primarycolor};
 
 
   &:hover {
-    background:black;
+    background:${props => props.theme.primarycolor};
     color:white;
   }
 

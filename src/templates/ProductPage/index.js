@@ -22,8 +22,8 @@ const ProductPage = ({ data }) => {
       <Container>
         <TwoColumnGrid>
           <GridLeft>
-
-            <p><Link to="/" >  Home </Link> / {product.title} </p>
+          {/* / <Link to={`/collections/${product.tags.toString().toLowerCase()}`}>{product.tags}</Link>  */}
+            <p><Link to="/" >  Home </Link>   / {product.title} </p>
             {product.images.map(image => (
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
@@ -33,11 +33,12 @@ const ProductPage = ({ data }) => {
             ))}
           </GridLeft>
           <GridRight>
+
             <ProductTitle>{product.title}</ProductTitle>
+            <ProductForm product={product} />
             <ProductDescription
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
-            <ProductForm product={product} />
           </GridRight>
         </TwoColumnGrid>
       </Container>
@@ -52,6 +53,7 @@ export const query = graphql`
       title
       handle
       productType
+      tags
       description
       descriptionHtml
       shopifyId
