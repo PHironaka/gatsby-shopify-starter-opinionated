@@ -9,10 +9,7 @@ import {
   GridLeft,
   GridRight,
 } from '~/utils/styles'
-import {
-  ProductTitle,
-  ProductDescription
-} from './styles'
+import { ProductTitle, ProductDescription } from './styles'
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
@@ -22,8 +19,10 @@ const ProductPage = ({ data }) => {
       <Container>
         <TwoColumnGrid>
           <GridLeft>
-          {/* / <Link to={`/collections/${product.tags.toString().toLowerCase()}`}>{product.tags}</Link>  */}
-            <p><Link to="/" >  Home </Link>   / {product.title} </p>
+            {/* / <Link to={`/collections/${product.tags.toString().toLowerCase()}`}>{product.tags}</Link>  */}
+            <p>
+              <Link to="/"> Home </Link> / {product.title}{' '}
+            </p>
             {product.images.map(image => (
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
@@ -33,7 +32,6 @@ const ProductPage = ({ data }) => {
             ))}
           </GridLeft>
           <GridRight>
-
             <ProductTitle>{product.title}</ProductTitle>
             <ProductForm product={product} />
             <ProductDescription
@@ -47,8 +45,8 @@ const ProductPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query($handle: String!) {
-    shopifyProduct(handle: { eq: $handle }) {
+  query {
+    shopifyProduct {
       id
       title
       handle

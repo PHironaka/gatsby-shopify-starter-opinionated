@@ -8,6 +8,7 @@ import { Container, CartButton, MenuLink, Wrapper } from './styles'
 import styled from 'styled-components'
 import CloseCartButton from './closeCart'
 import CartIcon from './cartIcon'
+import SearchBar from './searchBar'
 
 const HeaderWrapper = styled.div`
    background: ${props => props.theme.primarycolor};
@@ -103,12 +104,19 @@ const Navigation = ({ siteTitle }) => {
 
         <ToggleContent
           toggle={show => (
+            <div>
+
+            <SearchBar />
             <CartButton onClick={show}>
               {hasItems && <CartCounter>{quantity}</CartCounter>}
               Cart <CartIcon />
             </CartButton>
+            </div>
+
           )}
           content={hide => (
+           
+            
             <CartContainer className={` ${showText ? 'close' : 'open'}`}>
               <CloseCart className={` ${showText ? 'close' : ''}`} onClick={hide}><CloseCartButton /></CloseCart>
               <Cart />

@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.22",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",

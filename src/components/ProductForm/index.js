@@ -177,7 +177,7 @@ const ProductForm = ({ product }) => {
     <>
       {!available && <p>This Product is out of Stock!</p>}
       <ProductTitle disabled={!available || adding}>{price}</ProductTitle>
-      {/* {options.map(({ id, name, values }, index) => (
+      {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
           <label htmlFor={name}>{name} </label>
           <select
@@ -197,7 +197,7 @@ const ProductForm = ({ product }) => {
           </select>
           <br />
         </React.Fragment>
-      ))} */}
+      ))}
       <QuantityContain>
         <QuantityButton disabled={!available || adding} onClick={decreaseItem}>
           -
