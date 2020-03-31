@@ -59,13 +59,13 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           ShopifyProduct: {
             title: node => node.title,
+            image: node => node.images[0].originalSrc,
             path: node => node.handle,
           },
         },
        
       },
     },
-
     
     {
       resolve: `gatsby-source-shopify`,

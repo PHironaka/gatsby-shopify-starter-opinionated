@@ -19,7 +19,8 @@ export default class Search extends Component {
         <ul>
           {this.state.results.map(page => (
             <li key={page.id}>
-              <Link to={"/" + page.handle}>{page.title}</Link>
+              <img src={page.image} />
+              <Link to={"/product/" + page.path}>{page.title}</Link>
             </li>
           ))}
         </ul>

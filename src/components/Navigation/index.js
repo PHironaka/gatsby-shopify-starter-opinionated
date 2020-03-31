@@ -11,11 +11,11 @@ import CartIcon from './cartIcon'
 import SearchBar from './searchBar'
 
 const HeaderWrapper = styled.div`
-   background: ${props => props.theme.primarycolor};
-    margin-bottom: 1.45rem;
-    position:sticky;
-  top:0;
-  z-index:1000;
+  background: ${props => props.theme.primarycolor};
+  margin-bottom: 1.45rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 `
 
 const CartCounter = styled.span`
@@ -30,58 +30,49 @@ const CartCounter = styled.span`
 `
 
 const CartContainer = styled.div`
-    position: fixed;
-    right: -50%;
-    top: 0;
-    bottom: 0;
-    width: 40%;
-    min-width: 320px;
-    background-color: white;
-    z-index:1000;
-    padding:1em;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  min-width: 320px;
+  background-color: white;
+  z-index: 1000;
+  padding: 1em;
+  animation: slideOut 0.3s ease-out forwards;
+  &.close {
     animation: slideOut 0.3s ease-out forwards;
-    &.close {
-        animation: slideOut 0.3s ease-out forwards;
+  }
 
-      }
-    
-    &.open {
-      animation: slideIn 0.3s ease-out forwards;
-
-    
+  &.open {
+    animation: slideIn 0.3s ease-out forwards;
   }
 
   @keyframes slideIn {
-  0% {
-    right: calc(-100%);
+    0% {
+      right: calc(-100%);
+    }
+    100% {
+      right: 0;
+    }
   }
-  100% {
-    right: 0;
+
+  @keyframes slideOut {
+    0% {
+      right: 0;
+    }
+    100% {
+      right: calc(-100%);
+    }
   }
-}
-
-@keyframes slideOut {
-  0% {
-    right: 0;
-
-  }
-  100% {
-    right: calc(-100%);
-
-  }
-}
-
-
 `
 
-const CloseCart =styled.button`
-
-background:none;
-outline:none;
-border:none;
-font-size:1.4em;
-cursor:pointer;
-
+const CloseCart = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
 `
 
 const useQuantity = () => {
@@ -105,20 +96,21 @@ const Navigation = ({ siteTitle }) => {
         <ToggleContent
           toggle={show => (
             <div>
-
-            <SearchBar />
-            <CartButton onClick={show}>
-              {hasItems && <CartCounter>{quantity}</CartCounter>}
-              Cart <CartIcon />
-            </CartButton>
+              <SearchBar />
+              <CartButton onClick={show}>
+                {hasItems && <CartCounter>{quantity}</CartCounter>}
+                Cart <CartIcon />
+              </CartButton>
             </div>
-
           )}
           content={hide => (
-           
-            
             <CartContainer className={` ${showText ? 'close' : 'open'}`}>
-              <CloseCart className={` ${showText ? 'close' : ''}`} onClick={hide}><CloseCartButton /></CloseCart>
+              <CloseCart
+                className={` ${showText ? 'close' : ''}`}
+                onClick={hide}
+              >
+                <CloseCartButton />
+              </CloseCart>
               <Cart />
             </CartContainer>
           )}

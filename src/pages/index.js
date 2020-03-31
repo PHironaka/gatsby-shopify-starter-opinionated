@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const IntroStatement = styled.div`
   margin-bottom:2em;
   position:sticky;
-  top:85px;
+  top:132px;
   background:white;
   z-index:1000;
 `
