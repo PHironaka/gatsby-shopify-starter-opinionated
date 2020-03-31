@@ -14,17 +14,17 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <input type="text" value={this.state.query} onChange={this.search} />
         <ul>
           {this.state.results.map(page => (
-            <li key={page.id}>
-              <img src={page.image} />
+            <li key={page.id} >
+              {/* <img src={page.image} /> */}
               <Link to={"/product/" + page.path}>{page.title}</Link>
             </li>
           ))}
         </ul>
-      </div>
+      </>
     )
   }
   getOrCreateIndex = () =>

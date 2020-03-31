@@ -6,74 +6,79 @@ import StoreContext from '~/context/StoreContext'
 import styled from 'styled-components'
 
 const QuantityContain = styled.div`
-  display: grid;
-  grid-template-columns: 35px 25px 40px;
-  margin: 1em 0;
+  display:grid;
+  grid-template-columns:35px 25px 40px;
+  margin:1em 0;
 `
 
 const ProductTitle = styled.h3`
-  &:disabled {
-    color: lightgray;
-  }
+   &:disabled {
+  color:lightgray;
+    }
+
 `
 
 const AddRemoveItems = styled.div`
   border: none;
   outline: none;
-  text-align: center;
-  margin-top: 5px;
+  text-align:center;
+  margin-top:5px;
 `
 
 const QuantityButton = styled.button`
   cursor: pointer;
-  padding: 4px 10px;
-  display: block;
-  position: relative;
-  text-align: center;
+  padding:4px 10px; 
+  display:block;
+  position:relative;
+  text-align:center;
   transition: all 0.3s ease 0s;
-  background: white;
-  border: 1px solid ${props => props.theme.primarycolor};
+  background:white;
+  border:1px solid ${props => props.theme.primarycolor};
   color: ${props => props.theme.primarycolor};
 
   &:disabled {
-    background: white;
-    transition: none;
-    color: lightgray;
-    border: 1px solid lightgray;
-    cursor: text;
-  }
+  background:white;
+  transition:none;
+  color:lightgray;
+  border:1px solid lightgray;
+  cursor: text;
+    }
 
   &:hover:enabled {
-    background: ${props => props.theme.primarycolor};
-    color: white;
+    background:${props => props.theme.primarycolor};
+    color:white;
   }
+
+
+
 `
 
 const AddToCart = styled.button`
-  background: none;
-  border: 1px solid ${props => props.theme.primarycolor};
-  outline: none;
-  width: 150px;
-  text-align: center;
+  background:none;
+  border:1px solid ${props => props.theme.primarycolor};
+  outline:none;
+  width:150px;
+  text-align:center;
   cursor: pointer;
-  padding: 7px;
-  border-radius: 4px;
+  padding:7px;
+  border-radius:4px;
   transition: all 0.3s ease 0s;
-  background: white;
+  background:white;
   color: ${props => props.theme.primarycolor};
 
   &:disabled {
-    background: white;
-    transition: none;
-    color: lightgray;
-    border: 1px solid lightgray;
-    cursor: text;
-  }
+  background:white;
+  transition:none;
+  color:lightgray;
+  border:1px solid lightgray;
+  cursor: text;
+    }
 
   &:hover:enabled {
-    background: ${props => props.theme.primarycolor};
-    color: white;
+    background:${props => props.theme.primarycolor};
+    color:white;
   }
+
 `
 
 const ProductForm = ({ product }) => {
@@ -113,24 +118,26 @@ const ProductForm = ({ product }) => {
 
   const handleQuantityChange = ({ target }) => {
     setQuantity(target.value)
-    console.log(target.value)
+    console.log(target.value);
+
   }
+
 
   const decreaseItem = () => {
-    if (quantity > 1) {
+    if(quantity > 1) {
       setQuantity(quantity - 1)
-    } else {
-      return null
-    }
+    }else {
+      return null 
   }
+}
 
   const increaseItem = () => {
-    if (quantity < 8) {
+    if(quantity < 8) {
       setQuantity(quantity + 1)
-    } else {
-      return null
-    }
+    }else {
+      return null 
   }
+}
 
   const handleOptionChange = (optionIndex, { target }) => {
     const { value } = target
@@ -150,7 +157,7 @@ const ProductForm = ({ product }) => {
 
   const handleAddToCart = () => {
     addVariantToCart(productVariant.shopifyId, quantity)
-    console.log('Product Added!')
+    console.log("Product Added!")
   }
 
   const checkDisabled = (name, value) => {
@@ -167,6 +174,8 @@ const ProductForm = ({ product }) => {
     return true
   }
 
+  const hasVariants = variants.length > 1;
+
   const price = Intl.NumberFormat(undefined, {
     currency: minVariantPrice.currencyCode,
     minimumFractionDigits: 2,
@@ -175,8 +184,11 @@ const ProductForm = ({ product }) => {
 
   return (
     <>
-      {!available && <p>This Product is out of Stock!</p>}
+    {!available && <p>This Product is out of Stock!</p>}
       <ProductTitle disabled={!available || adding}>{price}</ProductTitle>
+      {hasVariants && (
+        <div>
+      
       {options.map(({ id, name, values }, index) => (
         <React.Fragment key={id}>
           <label htmlFor={name}>{name} </label>
@@ -185,11 +197,16 @@ const ProductForm = ({ product }) => {
             key={id}
             onChange={event => handleOptionChange(index, event)}
           >
+            <option disabled value="">
+                    Choose Size
+                  </option>
+
             {values.map(value => (
               <option
                 value={value}
+                name={value}
+                
                 key={`${name}-${value}`}
-                disabled={checkDisabled(name, value)}
               >
                 {value}
               </option>
@@ -198,10 +215,12 @@ const ProductForm = ({ product }) => {
           <br />
         </React.Fragment>
       ))}
+        </div> 
+      )}
+
+
       <QuantityContain>
-        <QuantityButton disabled={!available || adding} onClick={decreaseItem}>
-          -
-        </QuantityButton>
+        <QuantityButton disabled={!available || adding} onClick={decreaseItem}>-</QuantityButton>
 
         <AddRemoveItems
           id="quantity"
@@ -213,9 +232,7 @@ const ProductForm = ({ product }) => {
         >
           {quantity}
         </AddRemoveItems>
-        <QuantityButton disabled={!available || adding} onClick={increaseItem}>
-          +
-        </QuantityButton>
+        <QuantityButton disabled={!available || adding} onClick={increaseItem}>+</QuantityButton>
       </QuantityContain>
 
       <br />

@@ -7,9 +7,10 @@ import styled from 'styled-components'
 const IntroStatement = styled.div`
   margin-bottom:2em;
   position:sticky;
-  top:132px;
+  top:85px;
   background:white;
   z-index:1000;
+  padding:10px 0;
 `
 
 const IndexPage = () => (

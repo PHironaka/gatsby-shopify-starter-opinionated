@@ -5,9 +5,10 @@ import { breakpoints } from '../../utils/styles'
 
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns:1fr 2fr;
+  justify-content: center;
+  align-items: center;
   padding: 1em 3em;
   margin: 0 auto;
   max-width: 1400px;

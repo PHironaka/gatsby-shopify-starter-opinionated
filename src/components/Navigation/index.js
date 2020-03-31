@@ -18,6 +18,13 @@ const HeaderWrapper = styled.div`
   z-index: 1000;
 `
 
+const RightNavArea = styled.div`
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:2em;
+  justify-items: end;
+`
+
 const CartCounter = styled.span`
   background-color: white;
   color: ${props => props.theme.primarycolor};
@@ -95,13 +102,13 @@ const Navigation = ({ siteTitle }) => {
 
         <ToggleContent
           toggle={show => (
-            <div>
+            <RightNavArea>
               <SearchBar />
               <CartButton onClick={show}>
                 {hasItems && <CartCounter>{quantity}</CartCounter>}
                 Cart <CartIcon />
               </CartButton>
-            </div>
+            </RightNavArea>
           )}
           content={hide => (
             <CartContainer className={` ${showText ? 'close' : 'open'}`}>
