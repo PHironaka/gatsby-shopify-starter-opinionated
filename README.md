@@ -1,6 +1,13 @@
 # **Gatsby Shopify Starter**
 
-An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's built on top of @alexanderprod's shopify starter.
+An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's built on top of [@alexanderprod's](https://github.com/AlexanderProd/gatsby-shopify-starter) shopify starter.
+
+
+
+
+[**Demo Link**](https://gatsby-shopify-store-example.netlify.com)
+
+
 
 ## Features
 
@@ -30,9 +37,6 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 
 
-
-
-[DEMO](https://gatsby-shopify-store-example.netlify.com)
 
 ## Getting Started
 
