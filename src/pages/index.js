@@ -9,7 +9,7 @@ const IntroStatement = styled.div`
   position:sticky;
   top:85px;
   background:white;
-  z-index:1000;
+  z-index:100;
   padding:10px 0;
 `
 

@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import {  ThemeProvider, createGlobalStyle } from "styled-components"
 import ContextProvider from '~/provider/ContextProvider'
 import Navigation from '~/components/Navigation'
+import Footer from '~/components/footer'
 
 
 const Wrapper = styled.div`

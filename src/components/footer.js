@@ -1,10 +1,10 @@
 import React from 'react'
 import { StaticQuery, Link } from 'gatsby'
-
-const CollectionsAll = () => (
+import CollectionsAll from './CollectionsAll'
+const Footer = () => (
   <StaticQuery
     query={graphql`
-      query CollectionIndexQuery {
+      query CollectionFooterQuery {
         allShopifyCollection {
           edges {
             node {
@@ -41,4 +41,4 @@ const CollectionsAll = () => (
   />
 )
 
-export default CollectionsAll
+export default Footer

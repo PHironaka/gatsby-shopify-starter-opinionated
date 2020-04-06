@@ -23,6 +23,12 @@ const ProductPage = ({ data }) => {
             <p>
               <Link to="/"> Home </Link> / {product.title}{' '}
             </p>
+            {/* <Img
+                fluid={product.variants[0].image.localFile.childImageSharp.fluid}
+                key={product.id}
+                alt={product.title}
+              /> */}
+
             {product.images.map(image => (
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
@@ -63,6 +69,15 @@ export const query = graphql`
         id
         title
         price
+        image {
+          localFile {
+          childImageSharp {
+            fluid(maxWidth: 910) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        }
         availableForSale
         shopifyId
         selectedOptions {

@@ -1,6 +1,34 @@
 import React, { Component } from "react"
 import {  Link } from "gatsby"
 import { Index } from "elasticlunr"
+import styled from 'styled-components'
+
+const Results = styled.div`
+a {
+  z-index:1000;
+}
+`
+
+const SearchItems = styled.ul`
+  list-style:none;
+  padding:0 10px;
+  z-index:10;
+  width:222px;
+  overflow:hidden;
+  background: white;
+  text-align: center;
+
+  @media screen and (max-width: 800px) {
+    width:200px;
+    max-width:100%;
+  }
+
+  li {
+    padding:20px 0;
+  }
+
+`
+
 
 // Search component
 export default class Search extends Component {
@@ -14,17 +42,16 @@ export default class Search extends Component {
 
   render() {
     return (
-      <>
+      <Results>
         <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
+        <SearchItems>
           {this.state.results.map(page => (
             <li key={page.id} >
-              {/* <img src={page.image} /> */}
               <Link to={"/product/" + page.path}>{page.title}</Link>
             </li>
           ))}
-        </ul>
-      </>
+        </SearchItems>
+      </Results>
     )
   }
   getOrCreateIndex = () =>
