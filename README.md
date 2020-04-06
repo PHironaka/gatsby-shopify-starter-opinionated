@@ -19,9 +19,9 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 ## Next Steps
 
-✅Filter feature on homepage
+◻️ Filter feature on homepage
 
-✅Update variant image on product detail page.
+◻️ Update variant image on product detail page.
 
 
 
