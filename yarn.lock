@@ -5745,6 +5745,11 @@ gatsby-page-utils@^0.0.36:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-crisp-chat@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-crisp-chat/-/gatsby-plugin-crisp-chat-3.2.2.tgz#227b6f1f1311bbb37d392298e0b5a12ba9279a8d"
+  integrity sha512-7bFR/dEBu2u33kw6nGwoZN07Fy/LakB1k6f9SX4y6IZlzmNA4srbMCY/JMRz6yl0qskO7FfFP+xl01MXdEKkZw==
+
 gatsby-plugin-google-analytics@^2.0.13:
   version "2.1.23"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.23.tgz#7bad5dc36787a5b2317f3c8043ff2febe7c0932e"
