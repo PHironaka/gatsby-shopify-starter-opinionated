@@ -23,6 +23,7 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 ✅collection index pages
 
+✅Crisp Chat app integration
 
 ## Next Steps
 
