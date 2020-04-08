@@ -1,7 +1,14 @@
 import React, { useState, useContext } from 'react'
-import StoreContext from '~/context/StoreContext'
-import { Wrapper } from './styles'
+import StoreContext from '../../../context/StoreContext'
 import styled from 'styled-components'
+
+ const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2rem 0 2rem 0;
+
+  
+`
 
 const QuantityContain = styled.div`
   display: grid;

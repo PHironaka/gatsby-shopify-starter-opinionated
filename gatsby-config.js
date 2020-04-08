@@ -21,7 +21,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-layout`,
+    // `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,7 +45,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: false
+        displayName: true
+      },
+    },
+
+    {
+      resolve: 'gatsby-plugin-crisp-chat',
+      options: {
+        websiteId: 'c8af00d4-eb3e-4fad-8109-bca724eba9a8',
+        enableDuringDevelop: true, // Optional. Disables Crisp Chat during gatsby develop. Defaults to true.
+        defer: true, // Optional. Sets the Crisp loading script to defer instead of async. Defaults to false.
+        enableImprovedAccessibility: false // Optional. Sets aria-label attribute on pop-up icon for screen readers. Defaults to true.
       },
     },
 
@@ -66,31 +76,16 @@ module.exports = {
        
       },
     },
-
-    {
-      resolve: 'gatsby-plugin-crisp-chat',
-      options: {
-        websiteId: process.env.CRISP_CHAT,
-        enableDuringDevelop: true, // Optional. Disables Crisp Chat during gatsby develop. Defaults to true.
-        defer: true, // Optional. Sets the Crisp loading script to defer instead of async. Defaults to false.
-        enableImprovedAccessibility: false // Optional. Sets aria-label attribute on pop-up icon for screen readers. Defaults to true.
-      },
-    },
     
     {
       resolve: `gatsby-source-shopify`,
       options: {
-        shopName: process.env.SHOP_NAME,
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        shopName: 'pjh-gatsbyshop',
+        accessToken: '1e5bdddd448adedbe4e18e54469d9565',
         verbose: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        '~': path.join(__dirname, 'src/'),
-      },
-    },
+ 
 
     'gatsby-plugin-offline',
   ],

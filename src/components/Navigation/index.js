@@ -2,13 +2,59 @@ import React, { useState, useContext } from 'react'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import Cart from '../Cart'
-import StoreContext from '~/context/StoreContext'
+import {  Link } from 'gatsby'
+import StoreContext from '../../context/StoreContext'
 import ToggleContent from '../ToggleContent'
-import { Container, CartButton, MenuLink, Wrapper } from './styles'
 import styled from 'styled-components'
 import CloseCartButton from './closeCart'
 import CartIcon from './cartIcon'
 import SearchBar from './searchBar'
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns:1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 3em;
+  margin: 0 auto;
+  max-width: 1400px;
+  @media screen and (max-width: 800px) {
+    padding: 1em ;
+  }
+`
+
+ const CartButton = styled.div`
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  cursor:pointer;
+  font-weight: bold;
+`
+
+
+
+ const CartCounter = styled.span`
+  background-color: white;
+  color: ${props => props.theme.primarycolor};
+  border-radius: 20px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  float: right;
+  margin: -10px;
+  z-index: 20;
+`
+
+const LogoLink = styled.div`
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.4em;
+  }
+`
+
 
 const HeaderWrapper = styled.div`
   background: ${props => props.theme.primarycolor};
@@ -23,17 +69,6 @@ const RightNavArea = styled.div`
   grid-template-columns:1fr 1fr;
   grid-gap:2em;
   justify-items: end;
-`
-
-const CartCounter = styled.span`
-  background-color: white;
-  color: ${props => props.theme.primarycolor};
-  border-radius: 20px;
-  padding: 0 10px;
-  font-size: 1.2rem;
-  float: right;
-  margin: -10px;
-  z-index: 20;
 `
 
 const CartContainer = styled.div`
@@ -98,7 +133,7 @@ const Navigation = ({ siteTitle }) => {
   return (
     <HeaderWrapper>
       <Container className={` ${showText ? 'open' : ''}`}>
-        <MenuLink to="/">{siteTitle}</MenuLink>
+        <Link to="/"><LogoLink>{siteTitle}</LogoLink></Link>
 
         <ToggleContent
           toggle={show => (

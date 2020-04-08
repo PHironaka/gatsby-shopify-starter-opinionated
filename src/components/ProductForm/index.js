@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
-import StoreContext from '~/context/StoreContext'
+import StoreContext from '../../context/StoreContext'
 import styled from 'styled-components'
 
 const QuantityContain = styled.div`

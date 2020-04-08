@@ -1,21 +1,27 @@
 import React, { useContext } from 'react'
 import { graphql, Link } from 'gatsby'
-import SEO from '~/components/seo'
+import SEO from '../components/seo'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import StoreContext from '~/context/StoreContext'
+import StoreContext from '../context/StoreContext'
 
 const CollectionGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2.5rem;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
 `
 
 const IntroSection = styled.div`
   display: grid;
   grid-template-columns:250px 1fr;
   margin: 2em 0;
-
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
 
 `
 

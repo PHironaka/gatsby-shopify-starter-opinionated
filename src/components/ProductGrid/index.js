@@ -1,9 +1,43 @@
 import React, { useContext } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import StoreContext from '~/context/StoreContext'
+import StoreContext from '../../context/StoreContext'
 import SoldOutIcon from './soldOut'
-import { Grid, Product, Title, SoldOut, ProductImageAvail, PriceTag } from './styles'
-import { Img } from '~/utils/styles'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`
+
+ const SoldOut = styled.div`
+  position:absolute;
+  top:0;
+  right:10px;
+  `
+
+ const ProductImageAvail = styled.div`
+      position: relative;
+`
+
+ const Product = styled.div`
+  display: grid;
+`
+
+ const Title = styled.span`
+  font-size: 1.2rem;
+  font-weight:bold;
+`
+
+ const PriceTag = styled.span`
+  font-size: 1rem;
+
+`
 
 const ProductGrid = () => {
   const {

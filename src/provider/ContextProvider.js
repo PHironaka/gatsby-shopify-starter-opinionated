@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Client from 'shopify-buy'
-
-import Context from '~/context/StoreContext'
+import Context from '../context/StoreContext'
 
 const client = Client.buildClient({
-  storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-  domain: `${process.env.SHOP_NAME}.myshopify.com`,
+  storefrontAccessToken: '1e5bdddd448adedbe4e18e54469d9565',
+  domain: `pjh-gatsbyshop.myshopify.com`,
 })
 
 const ContextProvider = ({ children }) => {

@@ -1,15 +1,44 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import SEO from '~/components/seo'
-import ProductForm from '~/components/ProductForm'
-import {
-  Img,
-  Container,
-  TwoColumnGrid,
-  GridLeft,
-  GridRight,
-} from '~/utils/styles'
-import { ProductTitle, ProductDescription } from './styles'
+import SEO from '../components/seo'
+import styled from 'styled-components'
+import ProductForm from '../components/ProductForm'
+import Img from 'gatsby-image'
+
+const GridLeft = styled.div`
+  grid-area: left;
+`
+
+const GridRight = styled.div`
+  grid-area: right;
+`
+
+const Container = styled.div`
+  margin: 0 auto;
+`
+
+const TwoColumnGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr;
+  grid-template-rows: 1auto;
+  grid-template-areas: "left . right";
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
+`
+
+
+ const ProductTitle = styled.h1`
+  margin-bottom: 15px;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+`
+
+ const ProductDescription = styled.div`
+  margin-top: 40px;
+`
+
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
@@ -19,15 +48,9 @@ const ProductPage = ({ data }) => {
       <Container>
         <TwoColumnGrid>
           <GridLeft>
-            {/* / <Link to={`/collections/${product.tags.toString().toLowerCase()}`}>{product.tags}</Link>  */}
             <p>
               <Link to="/"> Home </Link> / {product.title}{' '}
             </p>
-            {/* <Img
-                fluid={product.variants[0].image.localFile.childImageSharp.fluid}
-                key={product.id}
-                alt={product.title}
-              /> */}
 
             {product.images.map(image => (
               <Img
