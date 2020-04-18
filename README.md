@@ -23,11 +23,17 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 ✅collection index pages
 
+✅hamburger navigation menu
+
+✅optional size chart
+
 ✅Crisp Chat app integration
 
 ## Next Steps
 
-◻️ Filter feature on homepage
+◻️ Filters on homepage
+
+◻️ AWS Amplify Authentication
 
 ◻️ Update variant image on product detail page.
 
