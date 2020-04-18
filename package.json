@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "aws-amplify": "^3.0.8",
+    "aws-amplify-react": "^4.1.7",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.17.4",
     "gatsby-image": "^2.2.29",

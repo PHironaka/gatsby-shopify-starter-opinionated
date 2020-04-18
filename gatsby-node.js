@@ -1,4 +1,5 @@
 const path = require(`path`)
+const _ = require("lodash")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -15,6 +16,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   }
   `)
+
+
+
 
   const staticPage = await graphql(`
   {
@@ -58,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+
   staticPage.data.allShopifyPage.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.handle}`,
@@ -81,4 +86,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
 
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path.match(/^\/dashboard/)) {
+    page.matchPath = "/dashboard/*"
+    createPage(page)
+  }
 }

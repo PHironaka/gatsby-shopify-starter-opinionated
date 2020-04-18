@@ -4,10 +4,17 @@ import styled from 'styled-components'
 
  const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr ;
   padding: 2rem 0 2rem 0;
+  grid-gap:2em;
 
-  
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr ;
+  }
+
+  img {
+   max-width:100%;
+  }
 `
 
 const QuantityContain = styled.div`
@@ -73,7 +80,6 @@ const LineItem = props => {
     <img
       src={line_item.variant.image.src}
       alt={`${line_item.title} product shot`}
-      height="60px"
     />
   ) : null
 
@@ -115,6 +121,7 @@ const LineItem = props => {
   return (
     <Wrapper>
       {variantImage}
+      <div>
       <p>
         {line_item.title}
         {`  `}
@@ -124,7 +131,9 @@ const LineItem = props => {
       </p>
       
       
-      {selectedOptions}
+      <p>{selectedOptions}</p>
+      </div>
+      
       <QuantityContain>
     
         <QuantityButton onClick={decreaseItem}>-</QuantityButton>

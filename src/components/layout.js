@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import ContextProvider from '../provider/ContextProvider'
 import Navigation from './Navigation'
 import Footer from './footer'
-
-
 
 const theme = {
   primarycolor: '#4c30e8',
@@ -29,10 +27,9 @@ const Wrapper = styled.div`
   @media screen and (max-width: 1000px) {
     display: block;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0 2em;
   }
 `
-
 
 const GlobalStyle = createGlobalStyle`
  html, body, div, span, applet, object, iframe,
@@ -117,20 +114,17 @@ const Layout = ({ children, location }) => {
 
   return (
     <ThemeProvider theme={theme}>
-    <>
-    <ContextProvider>
-
-    <GlobalStyle />
-      <Navigation siteTitle={data.site.siteMetadata.title} />
-      <Wrapper>
-                {children}
-                <Footer />
-              </Wrapper>
-      </ContextProvider>
-
+      <>
+        <ContextProvider>
+          <GlobalStyle />
+          <Navigation siteTitle={data.site.siteMetadata.title} />
+          <Wrapper>
+            {children}
+            <Footer />
+          </Wrapper>
+        </ContextProvider>
       </>
     </ThemeProvider>
-
   )
 }
 
@@ -141,43 +135,3 @@ Layout.propTypes = {
 export default Layout
 
 
-
-// const Layout = ({ children }) => {
-//   return (
-//     <ThemeProvider theme={theme}>
-//     <>
-//       <GlobalStyle />
-//       <ContextProvider>
-//         <StaticQuery
-//           query={graphql`
-//             query SiteTitleQuery {
-//               site {
-//                 siteMetadata {
-//                   title
-//                 }
-//               }
-//             }
-//           `}
-//           render={data => (
-//             <div>
-//               <Navigation siteTitle={data.site.siteMetadata.title} />
-//               <Wrapper>
-//                 {children}
-//                 <Footer />
-//               </Wrapper>
-//             </div>
-
-//           )}
-//         />
-//       </ContextProvider>
-//       </>
-
-//     </ThemeProvider>
-//   )
-// }
-
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
-
-// export default Layout

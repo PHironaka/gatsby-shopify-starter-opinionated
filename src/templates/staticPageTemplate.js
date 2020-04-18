@@ -1,6 +1,17 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import SEO from '../components/seo'
+import styled from 'styled-components'
+
+
+const PageContent = styled.div`
+  p {
+    margin:1em 0;
+  }
+  ul {
+    margin: 0 3em;
+  }
+`
 
 const StaticPage = ({ data }) => {
   const product = data.shopifyPage
@@ -10,7 +21,7 @@ const StaticPage = ({ data }) => {
       <div>
           <div>
             <h1>{product.title}</h1>
-            <div
+            <PageContent
               dangerouslySetInnerHTML={{ __html: product.body }}
             />
           </div>

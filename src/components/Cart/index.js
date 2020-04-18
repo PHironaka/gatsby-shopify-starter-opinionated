@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 
 const CheckOutButton = styled.button`
-  position:absolute;
+  position:relative;
   bottom:10px;
   width:90%;
   text-align:center;
@@ -19,7 +19,7 @@ const CheckOutButton = styled.button`
   outline:none;
   z-index:1000;
   padding:10px;
-  margin:1em;
+  margin:1em 0;
   border:1px solid ${props => props.theme.primarycolor};
 
 

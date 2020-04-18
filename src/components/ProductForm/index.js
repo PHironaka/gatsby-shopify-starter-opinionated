@@ -78,7 +78,7 @@ const AddToCart = styled.button`
 
 const VariantContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
   gap: 1em;
   text-align: center;
 `

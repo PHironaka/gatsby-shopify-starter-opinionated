@@ -1,7 +1,7 @@
 const path = require('path')
 
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
@@ -9,9 +9,30 @@ module.exports = {
     title: `Gatsby Shopify Store`,
     description: `Shopify Demo store built on top of Shopify Starter by AlexanderProd`,
     author: `@peterhironaka`,
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/',
+      },
+      {
+        name: 'Tops',
+        link: '/collections/tops',
+      },
+
+      {
+        name: 'Accessories',
+        link: '/collections/accessories',
+      },
+
+      {
+        name: 'About',
+        link: '/about',
+      },
+    ],
   },
+
   plugins: [
-    `gatsby-plugin-react-helmet` ,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -45,7 +66,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: true
+        displayName: true,
       },
     },
 
@@ -55,7 +76,7 @@ module.exports = {
         websiteId: 'c8af00d4-eb3e-4fad-8109-bca724eba9a8',
         enableDuringDevelop: true, // Optional. Disables Crisp Chat during gatsby develop. Defaults to true.
         defer: true, // Optional. Sets the Crisp loading script to defer instead of async. Defaults to false.
-        enableImprovedAccessibility: false // Optional. Sets aria-label attribute on pop-up icon for screen readers. Defaults to true.
+        enableImprovedAccessibility: false, // Optional. Sets aria-label attribute on pop-up icon for screen readers. Defaults to true.
       },
     },
 
@@ -73,10 +94,9 @@ module.exports = {
             path: node => node.handle,
           },
         },
-       
       },
     },
-    
+
     {
       resolve: `gatsby-source-shopify`,
       options: {
@@ -85,7 +105,6 @@ module.exports = {
         verbose: true,
       },
     },
- 
 
     'gatsby-plugin-offline',
   ],

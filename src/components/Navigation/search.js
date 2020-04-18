@@ -1,34 +1,53 @@
-import React, { Component } from "react"
-import {  Link } from "gatsby"
-import { Index } from "elasticlunr"
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
+import { Index } from 'elasticlunr'
 import styled from 'styled-components'
+import ToggleContent from '../ToggleContent'
+import SearchIcon from './searchIcon'
 
 const Results = styled.div`
-a {
-  z-index:1000;
-}
+  a {
+    z-index: 1000;
+  }
 `
 
 const SearchItems = styled.ul`
-  list-style:none;
-  padding:0 10px;
-  z-index:10;
-  width:222px;
-  overflow:hidden;
+  list-style: none;
+  padding: 0 10px;
+  z-index: 10;
+  width: 400px;
+  max-width: 350px;
+  overflow: hidden;
   background: white;
   text-align: center;
+  position: absolute;
 
   @media screen and (max-width: 800px) {
-    width:200px;
-    max-width:100%;
+    width: 200px;
+    max-width: 100%;
   }
 
   li {
-    padding:20px 0;
+    padding: 20px 0;
   }
-
 `
 
+const SearchItemResults = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2em;
+  margin: 1em 0;
+`
+const SearchBar = styled.input`
+  outline: none;
+  border: none;
+  border-radius: 11px;
+  padding: 5px 1em;
+
+  @media screen and (max-width: 700px) {
+    display:none;
+  }
+`
 
 // Search component
 export default class Search extends Component {
@@ -43,14 +62,28 @@ export default class Search extends Component {
   render() {
     return (
       <Results>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <SearchItems>
-          {this.state.results.map(page => (
-            <li key={page.id} >
-              <Link to={"/product/" + page.path}>{page.title}</Link>
-            </li>
-          ))}
-        </SearchItems>
+        
+              <SearchBar
+                type="text"
+                name="searchproducts"
+                placeholder="Search products!"
+                value={this.state.query}
+                onChange={this.search}
+                
+              />
+              <SearchItems>
+                {this.state.results.map(page => (
+                  <SearchItemResults >
+                    <img src={page.image} />
+                    <li key={page.id}>
+                      <Link onClick={this.search} to={'product/' + page.path}>
+                        {page.title}
+                      </Link>
+                    </li>
+                  </SearchItemResults>
+                ))}
+              </SearchItems>
+           
       </Results>
     )
   }

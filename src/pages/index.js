@@ -11,6 +11,9 @@ const IntroStatement = styled.div`
   background:white;
   z-index:100;
   padding:10px 0;
+
+
+
 `
 
 const IndexPage = () => (
