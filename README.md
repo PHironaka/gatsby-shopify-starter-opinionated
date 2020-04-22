@@ -29,13 +29,13 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 ✅Crisp Chat app integration
 
+✅AWS Amplify Authentication
+
+
 ## Next Steps
 
 ◻️ Filters on homepage
 
-◻️ AWS Amplify Authentication
-
-◻️ Update variant image on product detail page.
 
 
 
