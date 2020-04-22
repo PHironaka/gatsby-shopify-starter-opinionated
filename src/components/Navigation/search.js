@@ -45,7 +45,7 @@ const SearchBar = styled.input`
   padding: 5px 1em;
 
   @media screen and (max-width: 700px) {
-    display:none;
+    display: none;
   }
 `
 
@@ -62,28 +62,25 @@ export default class Search extends Component {
   render() {
     return (
       <Results>
-        
-              <SearchBar
-                type="text"
-                name="searchproducts"
-                placeholder="Search products!"
-                value={this.state.query}
-                onChange={this.search}
-                
-              />
-              <SearchItems>
-                {this.state.results.map(page => (
-                  <SearchItemResults >
-                    <img src={page.image} />
-                    <li key={page.id}>
-                      <Link onClick={this.search} to={'product/' + page.path}>
-                        {page.title}
-                      </Link>
-                    </li>
-                  </SearchItemResults>
-                ))}
-              </SearchItems>
-           
+        <SearchBar
+          type="text"
+          name="searchproducts"
+          placeholder="Search products!"
+          value={this.state.query}
+          onChange={this.search}
+        />
+        <SearchItems>
+          {this.state.results.map(page => (
+            <SearchItemResults>
+              <img src={page.image} />
+              <li key={page.id}>
+                <Link onClick={this.search} to={'product/' + page.path}>
+                  {page.title}
+                </Link>
+              </li>
+            </SearchItemResults>
+          ))}
+        </SearchItems>
       </Results>
     )
   }

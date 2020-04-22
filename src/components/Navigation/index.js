@@ -87,14 +87,16 @@ const NavContainer = styled.nav`
   min-width: 320px;
   background-color: white;
   z-index: 999;
-  padding: 1em;
+  padding: 5em 1em;
   transition: transform 300ms;
   transform: ${({ nav }) => (nav ? 'translateX(0%)' : 'translateX(-100%)')};
 
   div {
-    margin-top: 4em;
+    margin-top: 1em;
   }
 `
+
+
 
 const CartContainer = styled.div`
   position: fixed;

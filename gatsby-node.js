@@ -1,6 +1,16 @@
 const path = require(`path`)
 const _ = require("lodash")
 
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path.match(/^\/dashboard/)) {
+    page.matchPath = "/dashboard/*"
+    createPage(page)
+  }
+}
+
+
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -86,12 +96,4 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
 
-}
-
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-  if (page.path.match(/^\/dashboard/)) {
-    page.matchPath = "/dashboard/*"
-    createPage(page)
-  }
 }

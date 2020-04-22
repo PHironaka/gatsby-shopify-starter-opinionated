@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 1000px) {
     display: block;
     margin: 0 auto;
-    padding: 0 2em;
+    padding: 0 1em;
   }
 `
 
@@ -102,6 +102,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children, location }) => {
+
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

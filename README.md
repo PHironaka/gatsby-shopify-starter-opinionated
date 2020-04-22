@@ -31,6 +31,9 @@ An opinionated Gatsby Shopify Starter built with gatsby-source-shopify. It's bui
 
 ✅AWS Amplify Authentication
 
+✅Instagram feed 
+
+
 
 ## Next Steps
 
