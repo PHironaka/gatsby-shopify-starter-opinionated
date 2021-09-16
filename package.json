@@ -37,7 +37,7 @@
     "react-helmet": "^5.2.1",
     "react-select": "^3.0.8",
     "react-typography": "^0.16.19",
-    "set-value": "^2.0.1",
+    "set-value": "^4.0.1",
     "shopify-buy": "^2.8.0",
     "styled-components": "^5.0.0",
     "typography": "^0.16.19"
